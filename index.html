@@ -6,10 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Nicola Placentino">
     <title>Carosello</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
-    
+    <main class="container flex">
+        <div class="carousel">
+            <figure class="p-relative" id="carousel-element">
+                <img src="img/01.webp" alt="">
+                <figcaption class="p-absolute">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, illum maiores mollitia doloribus velit sunt, libero veritatis quis corporis tenetur reiciendis rerum exercitationem deleniti error hic quos a adipisci? Id.</p>
+                </figcaption>
+            </figure>
+        </div>
+        <div id="thumbnails" class="thumbnail p-relative">
+            <div id="prev-button" class="absolute"><i class="fa-solid fa-lg fa-angle-up"></i></div>
+            <figure class="">
+                <img src="img/01.webp" alt="">
+            </figure>
+            <figure class="">
+                <img src="img/01.webp" alt="">
+            </figure>
+            <figure class="">
+                <img src="img/01.webp" alt="">
+            </figure>
+            <figure class="">
+                <img src="img/01.webp" alt="">
+            </figure>
+            <figure class="">
+                <img src="img/01.webp" alt="">
+            </figure>
+            <div id="next-button" class="absolute"><i class="fa-solid fa-lg fa-angle-down"></i></div>
+        </div>
+    </main>
 </body>
 </html>

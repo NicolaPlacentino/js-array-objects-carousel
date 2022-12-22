@@ -9,7 +9,109 @@
 /* general */
 
 body{
-    font-family: sans-serif
+    font-family: sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    height: 100vh;
+}
+
+.carousel figure{
+    width: 1000px;
+    height: 500px;
+    
+    overflow: hidden;
+    
+    color: white;
+    border: 1.5px solid black;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.carousel figure img{
+    transform: translateY(-25%);
+}
+
+.carousel figure figcaption{
+    width: 80%;
+    text-align: right;
+
+    bottom: 30px;
+    right: 20px;
+}
+
+.thumbnail{
+    height: 500px;
+
+    border: 1.5px solid black;
+    border-left: 0;
+    border-radius: 0px 5px 5px 0px;
+
+    overflow: hidden;
+}
+
+.thumbnail figure{
+    height: 20%;
+    filter: brightness(0.7);
+
+    overflow: hidden;
+}
+
+.thumbnail figure img{
+    transform: translateY(-25%);
+}
+
+.thumbnail .active{
+    border: 3px solid whitesmoke;
+
+    filter: brightness(1);
+}
+
+
+#prev-button, #next-button{
+    background-color: whitesmoke;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prev-button{
+    top: 10px;
+}
+
+#next-button{
+    bottom: 10px;
 }
 
 /* utils */
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+}
