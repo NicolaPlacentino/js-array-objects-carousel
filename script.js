@@ -88,15 +88,18 @@ let currentActiveIndex = 0
 carouselFigures[currentActiveIndex].classList.add('active')
 thumbnailFigures[currentActiveIndex].classList.add('active')
 
+const cycleimages = setInterval(changePic, 5000, 'next')
+
 next.addEventListener('click', function () {
 
     changePic('next')
-
+    clearInterval(cycleimages)
 })
 
 prev.addEventListener('click', function () {
 
     changePic('prev')
+    clearInterval(cycleimages)
 
 })
 
@@ -105,7 +108,7 @@ for (let i = 0; i < thumbnailFigures.length; i++){
 
     thumbFigure.addEventListener('click', ()=>{
         changePic(i)
+        clearInterval(cycleimages)
+
     })
 }
-
-const Cycleimages = setInterval(changePic, 5000, 'next')
