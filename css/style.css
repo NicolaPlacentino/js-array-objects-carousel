@@ -26,12 +26,20 @@ body{
     overflow: hidden;
     
     color: white;
+    text-shadow: 0 0 3px black;
     border: 1.5px solid black;
     border-radius: 5px 0px 0px 5px;
+
+    display: none;
 }
 
 .carousel figure img{
-    transform: translateY(-25%);
+    object-fit: cover;
+    object-position: center right;
+    height: 100%;}
+
+.carousel h3{
+    margin-bottom: 8px;
 }
 
 .carousel figure figcaption{
@@ -42,8 +50,13 @@ body{
     right: 20px;
 }
 
+.carousel figure.active{
+    display: block;
+}
+
 .thumbnail{
     height: 500px;
+    width: 200px;
 
     border: 1.5px solid black;
     border-left: 0;
@@ -54,23 +67,35 @@ body{
 
 .thumbnail figure{
     height: 20%;
+    width: 100%;
     filter: brightness(0.7);
 
     overflow: hidden;
+
+    transition: all 0.3s;
+}
+
+.thumbnail figure:hover{
+    filter: brightness(1);
+
 }
 
 .thumbnail figure img{
-    transform: translateY(-25%);
+    object-fit: cover;
+    object-position: center right;
+    height: 100%;
 }
 
 .thumbnail .active{
     border: 3px solid whitesmoke;
 
     filter: brightness(1);
+
+    transition: all 0.3s;
 }
 
 
-#prev-button, #next-button{
+#prev, #next{
     background-color: whitesmoke;
 
     height: 30px;
@@ -85,13 +110,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 }
 
-#prev-button{
+#prev{
     top: 10px;
 }
 
-#next-button{
+#next{
     bottom: 10px;
 }
 

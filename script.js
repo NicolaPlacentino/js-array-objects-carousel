@@ -19,7 +19,7 @@ la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatur
 const data = [
     {
       image: 'img/01.webp',
-      title: 'Marvel\'s Spiderman Miles Morale',
+      title: 'Marvel\'s Spiderman Miles Morales',
       text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
       image: 'img/02.webp',
@@ -42,6 +42,70 @@ const data = [
 
 const carousel = document.getElementById('carousel')
 const thumbnails = document.getElementById('thumbnails')
-const prevButton = document.getElementById('prev-button')
-const nextButton = document.getElementById('next-button')
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
 
+function changePic(target) {
+    carouselFigures[currentActiveIndex].classList.remove('active')
+    thumbnailFigures[currentActiveIndex].classList.remove('active')
+
+    if (target === 'next'){
+        currentActiveIndex++
+    } else if (target === 'prev'){
+        currentActiveIndex--
+    } else {
+        currentActiveIndex = target
+    }
+    
+    if (currentActiveIndex < 0){currentActiveIndex =  data.length-1}
+    if (currentActiveIndex === data.length){currentActiveIndex = 0}
+
+    carouselFigures[currentActiveIndex].classList.add('active')
+    thumbnailFigures[currentActiveIndex].classList.add('active')
+}
+
+for (i = 0; i < data.length; i++){
+    thumbnails.innerHTML += `
+    <figure class="thumbnail-figure">
+        <img src="${data[i].image}" alt="gioco-${i}">
+    </figure>`
+
+    carousel.innerHTML += `
+    <figure class="carousel-figure p-relative">
+        <img src="${data[i].image}" alt="gioco-${i}">
+        <figcaption class="p-absolute">
+            <h3>${data[i].title}</h3>
+            <p>${data[i].text}</p>
+        </figcaption>
+    </figure>`
+}
+
+const carouselFigures = document.querySelectorAll('.carousel-figure')
+const thumbnailFigures = document.querySelectorAll('.thumbnail-figure')
+
+let currentActiveIndex = 0
+
+carouselFigures[currentActiveIndex].classList.add('active')
+thumbnailFigures[currentActiveIndex].classList.add('active')
+
+next.addEventListener('click', function () {
+
+    changePic('next')
+
+})
+
+prev.addEventListener('click', function () {
+
+    changePic('prev')
+
+})
+
+for (let i = 0; i < thumbnailFigures.length; i++){
+    const thumbFigure = thumbnailFigures[i]
+
+    thumbFigure.addEventListener('click', ()=>{
+        changePic(i)
+    })
+}
+
+const Cycleimages = setInterval(changePic, 5000, 'next')
